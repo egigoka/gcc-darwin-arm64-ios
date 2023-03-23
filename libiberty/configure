@@ -13,6 +13,7 @@
 ## -------------------- ##
 
 # Be more Bourne compatible
+echo libiberty/config start
 DUALCASE=1; export DUALCASE # for MKS sh
 if test -n "${ZSH_VERSION+set}" && (emulate sh) >/dev/null 2>&1; then :
   emulate sh

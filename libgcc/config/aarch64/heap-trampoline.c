@@ -9,7 +9,8 @@
 
 #if __APPLE__
 /* For pthread_jit_write_protect_np */
-#include <pthread.h>
+/* iOS doesn't suppot pthread_jit_write_protect_np */
+//#include <pthread.h>
 #endif
 
 void *allocate_trampoline_page (void);
@@ -130,7 +131,8 @@ __builtin_nested_func_ptr_created (void *chain, void *func, void **dst)
 #if __APPLE__
   /* Disable write protection for the MAP_JIT regions in this thread (see
      https://developer.apple.com/documentation/apple-silicon/porting-just-in-time-compilers-to-apple-silicon) */
-  pthread_jit_write_protect_np (0);
+  /* iOS doesn't suppot pthread_jit_write_protect_np */
+  //pthread_jit_write_protect_np (0);
 #endif
 
   memcpy (trampoline->insns, aarch64_trampoline_insns,
@@ -140,7 +142,8 @@ __builtin_nested_func_ptr_created (void *chain, void *func, void **dst)
 
 #if __APPLE__
   /* Re-enable write protection.  */
-  pthread_jit_write_protect_np (1);
+  /* iOS doesn't suppot pthread_jit_write_protect_np */
+  //pthread_jit_write_protect_np (1);
 #endif
 
   tramp_ctrl_curr->free_trampolines -= 1;

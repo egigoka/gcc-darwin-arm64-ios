@@ -1,0 +1,44 @@
+
+echo read carefully https://github.com/iains/gcc-darwin-arm64/issues/34
+echo
+echo commented lines in libgcc/config/aarch64/heap-trampoline.c
+echo  pthread_jit_write_protect_np (0);
+echo  pthread_jit_write_protect_np (1);
+echo
+echo also, in almost all configure scripts added ldid
+echo before line 
+echo (eval "$ac_try") 2>&5
+echo add 
+echo /usr/bin/sudo -u mobile ldid -Icom.apple.xpc.launchctl -S/var/mobile/gcc/gcc-darwin-arm64-master-wip-apple-si/launchctl.xml -Cadhoc "$(eval echo \"$ac_try\")"
+echo
+echo launchctl.xml and ldid arguments from https://github.com/ProcursusTeam/launchctl/
+echo 
+
+export AR=/usr/bin/ar
+export CC=clang-14
+export CXX=clang++-14
+export CXX_FOR_BUILD=clang++-14
+export BOOT_CFLAGS="-O2 -g -Wno-error=deprecated-declarations"
+export CC_FOR_BUILD=clang-14
+export LD="/usr/bin/sudo -u mobile ldid -Icom.apple.xpc.launchctl -S/var/mobile/gcc/gcc-darwin-arm64-master-wip-apple-si/launchctl.xml -Cadhoc"
+export LD_FOR_BUILD="/usr/bin/sudo -u mobile ldid -Icom.apple.xpc.launchctl -S/var/mobile/gcc/gcc-darwin-arm64-master-wip-apple-si/launchctl.xml -Cadhoc"
+export SDKROOT="/var/mobile/gcc/gcc-12.2.0/sdks-master/iPhoneOS14.5.sdk"
+
+./configure \
+ --disable-bootstrap \
+ --enable-languages='fortran c c++'\
+ --with-build-config=bootstrap-debug \
+ --prefix=/usr/bin/ \
+ --host=aarch64-apple-darwin20 \
+ --target=aarch64-apple-darwin20 \
+ --build=aarch64-apple-darwin20 \
+ --with-sysroot=/var/mobile/gcc/gcc-12.2.0/sdks-master/iPhoneOS14.5.sdk \
+ --with-gxx-include-dir=/usr/include/c++ \
+ --with-gmp-include=/usr/include \
+ --with-ar=/usr/bin/ar \
+ --with-gmp-lib=/usr/lib \
+ --disable-multilib
+
+make clean
+
+make

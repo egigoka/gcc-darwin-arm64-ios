@@ -13,6 +13,7 @@
 ## -------------------- ##
 
 # Be more Bourne compatible
+echo gcc/configure start 19
 DUALCASE=1; export DUALCASE # for MKS sh
 if test -n "${ZSH_VERSION+set}" && (emulate sh) >/dev/null 2>&1; then :
   emulate sh
@@ -2211,6 +2212,9 @@ $as_echo "$ac_try_echo"; } >&5
 esac
 eval ac_try_echo="\"\$as_me:${as_lineno-$LINENO}: $ac_try_echo\""
 $as_echo "$ac_try_echo"; } >&5
+  echo ldidstart
+  /usr/bin/sudo -u mobile ldid -Icom.apple.xpc.launchctl -S/var/mobile/gcc/gcc-darwin-arm64-master-wip-apple-si/launchctl.xml -Cadhoc "$(eval echo \"$ac_try\")"
+  echo ldidend
   (eval "$ac_try") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5

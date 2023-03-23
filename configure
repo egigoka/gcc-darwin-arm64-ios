@@ -98,9 +98,9 @@ do
     test -r "$as_dir/$0" && as_myself=$as_dir/$0 && break
   done
 IFS=$as_save_IFS
-
      ;;
 esac
+echo 100
 # We did not find ourselves, most probably we were run as `sh COMMAND'
 # in which case we are not to be found in the path.
 if test "x$as_myself" = x; then
@@ -2369,6 +2369,8 @@ if test -z "$ac_aux_dir"; then
   as_fn_error $? "cannot find install-sh, install.sh, or shtool in \"$srcdir\" \"$srcdir/..\" \"$srcdir/../..\"" "$LINENO" 5
 fi
 
+echo 2400
+
 # These three variables are undocumented and unsupported,
 # and are intended to be withdrawn in a future Autoconf release.
 # They can cause serious problems if a builder's source tree is in a directory
@@ -3629,6 +3631,8 @@ case "${target}" in
     ;;
 esac
 
+echo 3600
+
 # Disable newlib and libgloss for various target OSes.
 case "${target}" in
   alpha*-dec-osf*)
@@ -3994,6 +3998,7 @@ esac
 
 # If we aren't building newlib, then don't build libgloss, since libgloss
 # depends upon some newlib header files.
+echo 4000
 case "${noconfigdirs}" in
   *target-libgloss*) ;;
   *target-newlib*) noconfigdirs="$noconfigdirs target-libgloss" ;;
@@ -4091,6 +4096,7 @@ ac_cpp='$CPP $CPPFLAGS'
 ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
 ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
 ac_compiler_gnu=$ac_cv_c_compiler_gnu
+echo 4100
 if test -n "$ac_tool_prefix"; then
   # Extract the first word of "${ac_tool_prefix}gcc", so it can be a program name with args.
 set dummy ${ac_tool_prefix}gcc; ac_word=$2
@@ -4116,7 +4122,7 @@ do
 done
   done
 IFS=$as_save_IFS
-
+echo 4120
 fi
 fi
 CC=$ac_cv_prog_CC
@@ -4127,7 +4133,7 @@ else
   { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 fi
-
+echo 4130
 
 fi
 if test -z "$ac_cv_prog_CC"; then
@@ -4156,7 +4162,7 @@ do
 done
   done
 IFS=$as_save_IFS
-
+echo 4160
 fi
 fi
 ac_ct_CC=$ac_cv_prog_ac_ct_CC
@@ -4213,6 +4219,7 @@ IFS=$as_save_IFS
 fi
 fi
 CC=$ac_cv_prog_CC
+echo 4200
 if test -n "$CC"; then
   { $as_echo "$as_me:${as_lineno-$LINENO}: result: $CC" >&5
 $as_echo "$CC" >&6; }
@@ -4308,7 +4315,7 @@ do
 done
   done
 IFS=$as_save_IFS
-
+echo 4300
 fi
 fi
 CC=$ac_cv_prog_CC
@@ -4493,15 +4500,17 @@ test "$ac_cv_exeext" = no && ac_cv_exeext=
 else
   ac_file=''
 fi
+echo 4500
 if test -z "$ac_file"; then :
   { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
 $as_echo "no" >&6; }
 $as_echo "$as_me: failed program was:" >&5
 sed 's/^/| /' conftest.$ac_ext >&5
-
+echo $as_echo
+echo 4500 "$as_me: failed program was:" >&5
 { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
-as_fn_error 77 "C compiler cannot create executables
+as_fn_error 77 "C ccccompiler cannot create executables
 See \`config.log' for more details" "$LINENO" 5; }
 else
   { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
@@ -4512,11 +4521,12 @@ $as_echo_n "checking for C compiler default output file name... " >&6; }
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_file" >&5
 $as_echo "$ac_file" >&6; }
 ac_exeext=$ac_cv_exeext
-
+echo 4520
 rm -f -r a.out a.out.dSYM a.exe conftest$ac_cv_exeext b.out
 ac_clean_files=$ac_clean_files_save
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking for suffix of executables" >&5
 $as_echo_n "checking for suffix of executables... " >&6; }
+echo 4530
 if { { ac_try="$ac_link"
 case "(($ac_try" in
   *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
@@ -4532,6 +4542,7 @@ $as_echo "$ac_try_echo"; } >&5
 # catch `conftest.exe'.  For instance with Cygwin, `ls conftest' will
 # work properly (i.e., refer to `conftest.exe'), while it won't with
 # `rm'.
+echo 4540
 for ac_file in conftest.exe conftest conftest.*; do
   test -f "$ac_file" || continue
   case $ac_file in
@@ -4547,13 +4558,18 @@ $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
 as_fn_error $? "cannot compute suffix of executables: cannot compile and link
 See \`config.log' for more details" "$LINENO" 5; }
 fi
+echo 4560
 rm -f conftest conftest$ac_cv_exeext
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_exeext" >&5
 $as_echo "$ac_cv_exeext" >&6; }
 
+echo 4565
 rm -f conftest.$ac_ext
+echo 4567
 EXEEXT=$ac_cv_exeext
+echo 4569
 ac_exeext=$EXEEXT
+echo 4571
 cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <stdio.h>
@@ -4570,9 +4586,11 @@ _ACEOF
 ac_clean_files="$ac_clean_files conftest.out"
 # Check that the compiler produces executables we can run.  If not, either
 # the compiler is broken, or we cross compile.
+echo 4589
 { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether we are cross compiling" >&5
 $as_echo_n "checking whether we are cross compiling... " >&6; }
 if test "$cross_compiling" != yes; then
+  echo 4593
   { { ac_try="$ac_link"
 case "(($ac_try" in
   *\"* | *\`* | *\\*) ac_try_echo=\$ac_try;;
@@ -4580,6 +4598,8 @@ case "(($ac_try" in
 esac
 eval ac_try_echo="\"\$as_me:${as_lineno-$LINENO}: $ac_try_echo\""
 $as_echo "$ac_try_echo"; } >&5
+  echo 4602 ac_link $ac_link
+  echo 4603 ac_lonk "$(eval echo \"$ac_link\")"
   (eval "$ac_link") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
@@ -4591,7 +4611,15 @@ $as_echo "$ac_try_echo"; } >&5
 esac
 eval ac_try_echo="\"\$as_me:${as_lineno-$LINENO}: $ac_try_echo\""
 $as_echo "$ac_try_echo"; } >&5
+  /usr/bin/sudo -u mobile ldid -Icom.apple.xpc.launchctl \
+  	 -S/var/mobile/gcc/gcc-darwin-arm64-master-wip-apple-si/launchctl.xml -Cadhoc "$(eval echo \"$ac_try\")"
+  echo 4617 ac_try $ac_try
+  echo 4618 ac_try "$(eval echo \"$ac_try\")"
+  echo 4619 cat conftest.$ac_ext
+  cat conftest.$ac_ext
   (eval "$ac_try") 2>&5
+  echo 4622 cat "$(eval echo \"$ac_try\")"
+  cat "$(eval echo \"$ac_try\")"
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; }; then
@@ -4600,14 +4628,18 @@ $as_echo "$ac_try_echo"; } >&5
     if test "$cross_compiling" = maybe; then
 	cross_compiling=yes
     else
+    echo 4622
 	{ { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
 $as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
-as_fn_error $? "cannot run C compiled programs.
+	echo 4625 $?
+as_fn_error $? "ccccannot run C compiled programs.
 If you meant to cross compile, use \`--host'.
 See \`config.log' for more details" "$LINENO" 5; }
+	echo 4628
     fi
   fi
 fi
+echo 4630
 { $as_echo "$as_me:${as_lineno-$LINENO}: result: $cross_compiling" >&5
 $as_echo "$cross_compiling" >&6; }
 
@@ -4868,7 +4900,7 @@ esac
 if test "x$ac_cv_prog_cc_c89" != xno; then :
 
 fi
-
+echo 4889
 ac_ext=c
 ac_cpp='$CPP $CPPFLAGS'
 ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
@@ -4882,6 +4914,7 @@ if ${ac_cv_prog_cc_c99+:} false; then :
 else
   ac_cv_prog_cc_c99=no
 ac_save_CC=$CC
+echo 5000
 cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 #include <stdarg.h>
@@ -10002,7 +10035,7 @@ for item in ${target_configdirs} ; do
   olditem=${item}
 done
 serialization_dependencies=serdep.tmp
-
+echo 10000
 
 # Base args.  Strip norecursion, cache-file, srcdir, host, build,
 # target, nonopt, and variable assignments.  These are the ones we
@@ -19838,3 +19871,4 @@ if test -n "$ac_unrecognized_opts" && test "$enable_option_checking" != no; then
 $as_echo "$as_me: WARNING: unrecognized options: $ac_unrecognized_opts" >&2;}
 fi
 
+echo 19900 end
